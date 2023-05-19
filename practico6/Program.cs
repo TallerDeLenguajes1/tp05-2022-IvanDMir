@@ -75,7 +75,7 @@
 
 // -------------------Ejercicio 3 -----------------------
 
-float Numero =0;
+float Numero =0,float1,float2,aux;
 string Entrada="";
 bool condicion = true;
 
@@ -83,12 +83,38 @@ while(condicion){
     Console.WriteLine("Ingrese su numero");
     Entrada=Console.ReadLine();
     condicion = float.TryParse(Entrada, out Numero);
-    Console.WriteLine("Valor Absoluto :"+ Math.Abs(Numero));
-    Console.WriteLine("Cuadrado :"+ (Numero*Numero));
-    Console.WriteLine("Raiz "+ Math.Sqrt(Numero));
-    Console.WriteLine("Seno : " + Math.Sin(Numero));
-    Console.WriteLine("Coseno : "+ Math.Cos(Numero));
-    Console.WriteLine("Parte entera " + Math.Truncate(Numero));
+    if (condicion){ 
+        Console.WriteLine("Valor Absoluto :"+ Math.Abs(Numero));
+        Console.WriteLine("Cuadrado :"+ (Numero*Numero));
+        Console.WriteLine("Raiz "+ Math.Sqrt(Numero));
+        Console.WriteLine("Seno : " + Math.Sin(Numero));
+        Console.WriteLine("Coseno : "+ Math.Cos(Numero));
+        Console.WriteLine("Parte entera " + Math.Truncate(Numero));
+    }
+    else{
+    Console.WriteLine("Numero no valido");
+    }
+   Console.WriteLine("Ingrese el primer Numero");
+    string? Num1 =Console.ReadLine();
+    condicion = float.TryParse(Num1,out float1);
+    if (condicion){
+        string? Num2 = Console.ReadLine();
+        Console.WriteLine("Ingrese el Segundo Numero");
+        condicion = float.TryParse(Num2, out float2);
+        if (condicion) {
+            if (float1 < float2){
+                aux = float1;
+                float1 = float2;
+                float2 = aux;
+            }
+            Console.WriteLine("El numero Maximo es "+ float1);
+            Console.WriteLine("El minimo de los numeros es " + float2);
+            } else{
+        Console.WriteLine("Numero no valido");
+        }
+    } else{
+    Console.WriteLine("Numero no valido");
+    }
 
-
+    
 }
